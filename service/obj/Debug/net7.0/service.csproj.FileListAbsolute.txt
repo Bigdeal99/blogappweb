@@ -1,0 +1,15 @@
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/bin/Debug/net7.0/service.deps.json
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/bin/Debug/net7.0/service.dll
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/bin/Debug/net7.0/service.pdb
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/bin/Debug/net7.0/infrastructure.dll
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/bin/Debug/net7.0/infrastructure.pdb
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/service.csproj.AssemblyReference.cache
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/service.GeneratedMSBuildEditorConfig.editorconfig
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/service.AssemblyInfoInputs.cache
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/service.AssemblyInfo.cs
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/service.csproj.CoreCompileInputs.cache
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/service.csproj.CopyComplete
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/service.dll
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/refint/service.dll
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/service.pdb
+/Users/marcelohani/Downloads/programming_2_video_4-main/service/obj/Debug/net7.0/ref/service.dll

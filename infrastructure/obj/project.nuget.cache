@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "xGj4jVriQk0k8WUpDSeY2avHcxX8E6R/qGIW929G2SgLursKiM/d2/tLR117xX2ai+sFii8Ql5xBURcNAJwKtQ==",
+  "success": true,
+  "projectFilePath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj",
+  "expectedPackageFiles": [
+    "/Users/marcelohani/.nuget/packages/dapper/2.0.143/dapper.2.0.143.nupkg.sha512",
+    "/Users/marcelohani/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "/Users/marcelohani/.nuget/packages/npgsql/8.0.0-preview.4/npgsql.8.0.0-preview.4.nupkg.sha512",
+    "/Users/marcelohani/.nuget/packages/microsoft.netcore.app.ref/7.0.9/microsoft.netcore.app.ref.7.0.9.nupkg.sha512",
+    "/Users/marcelohani/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.9/microsoft.aspnetcore.app.ref.7.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}
