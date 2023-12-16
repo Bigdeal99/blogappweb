@@ -156,11 +156,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj",
+      "projectUniqueName": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj",
       "projectName": "infrastructure",
-      "projectPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj",
+      "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj",
       "packagesPath": "/Users/marcelohani/.nuget/packages/",
-      "outputPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/obj/",
+      "outputPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/marcelohani/.nuget/NuGet/NuGet.Config"

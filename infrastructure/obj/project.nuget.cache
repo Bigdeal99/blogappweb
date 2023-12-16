@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xGj4jVriQk0k8WUpDSeY2avHcxX8E6R/qGIW929G2SgLursKiM/d2/tLR117xX2ai+sFii8Ql5xBURcNAJwKtQ==",
+  "dgSpecHash": "v4FH47NcpGdSBUOIVrFyaJHKHBedOcGLU0tnx+sZPsBAbx2QeMOHTKX+JEqIndAQJscuAmLIbq5qqvEchM2aJQ==",
   "success": true,
-  "projectFilePath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj",
+  "projectFilePath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj",
   "expectedPackageFiles": [
     "/Users/marcelohani/.nuget/packages/dapper/2.0.143/dapper.2.0.143.nupkg.sha512",
     "/Users/marcelohani/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",

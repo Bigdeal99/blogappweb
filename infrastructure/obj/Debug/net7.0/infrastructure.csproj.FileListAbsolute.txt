@@ -10,3 +10,16 @@
 /Users/marcelohani/Downloads/programming_2_video_4-main/infrastructure/obj/Debug/net7.0/refint/infrastructure.dll
 /Users/marcelohani/Downloads/programming_2_video_4-main/infrastructure/obj/Debug/net7.0/infrastructure.pdb
 /Users/marcelohani/Downloads/programming_2_video_4-main/infrastructure/obj/Debug/net7.0/ref/infrastructure.dll
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/bin/Debug/net7.0/infrastructure.deps.json
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/bin/Debug/net7.0/infrastructure.dll
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/bin/Debug/net7.0/infrastructure.pdb
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/infrastructure.csproj.AssemblyReference.cache
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/infrastructure.AssemblyInfoInputs.cache
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/infrastructure.AssemblyInfo.cs
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/infrastructure.csproj.CoreCompileInputs.cache
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/infrastructure.sourcelink.json
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/infrastructure.dll
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/refint/infrastructure.dll
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/infrastructure.pdb
+/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/Debug/net7.0/ref/infrastructure.dll

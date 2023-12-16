@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/api/api.csproj": {}
+    "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj": {}
   },
   "projects": {
-    "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/api/api.csproj": {
+    "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/api/api.csproj",
+        "projectUniqueName": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj",
         "projectName": "api",
-        "projectPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/api/api.csproj",
+        "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj",
         "packagesPath": "/Users/marcelohani/.nuget/packages/",
-        "outputPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/api/obj/",
+        "outputPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/marcelohani/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/service.csproj": {
-                "projectPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/service.csproj"
+              "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj": {
+                "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj"
               }
             }
           }
@@ -85,14 +85,14 @@
         }
       }
     },
-    "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj": {
+    "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj",
+        "projectUniqueName": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj",
         "projectName": "infrastructure",
-        "projectPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj",
+        "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj",
         "packagesPath": "/Users/marcelohani/.nuget/packages/",
-        "outputPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/obj/",
+        "outputPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/marcelohani/.nuget/NuGet/NuGet.Config"
@@ -161,14 +161,14 @@
         }
       }
     },
-    "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/service.csproj": {
+    "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/service.csproj",
+        "projectUniqueName": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj",
         "projectName": "service",
-        "projectPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/service.csproj",
+        "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj",
         "packagesPath": "/Users/marcelohani/.nuget/packages/",
-        "outputPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/obj/",
+        "outputPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/marcelohani/.nuget/NuGet/NuGet.Config"
@@ -183,8 +183,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj": {
-                "projectPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj"
+              "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj": {
+                "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj"
               }
             }
           }

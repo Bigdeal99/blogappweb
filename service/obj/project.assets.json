@@ -174,11 +174,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/service.csproj",
+      "projectUniqueName": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj",
       "projectName": "service",
-      "projectPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/service.csproj",
+      "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj",
       "packagesPath": "/Users/marcelohani/.nuget/packages/",
-      "outputPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/service/obj/",
+      "outputPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/marcelohani/.nuget/NuGet/NuGet.Config"
@@ -193,8 +193,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj": {
-              "projectPath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/infrastructure/infrastructure.csproj"
+            "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj": {
+              "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj"
             }
           }
         }

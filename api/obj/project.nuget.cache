@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cz581IPIiwa3jNMUzihWH2HKYkpbSrw0BdLJjV1IJskF0dvJsmNkyWrOSCY7JOa3FCjerVjneMuaWJ2nczYVKQ==",
+  "dgSpecHash": "pA9Q5U4rfkXIYnAYjNAdJB65l70FKgwmRgvJ7G1DBFbwPfO6I8XtQCgqCZkIFfXCHjQfp/wXB5XW9J9ibWvXFg==",
   "success": true,
-  "projectFilePath": "/Users/marcelohani/Desktop/EASV/👩‍💻Programming II 2023👨🏿‍💻/RiderProjects/blogappweb/api/api.csproj",
+  "projectFilePath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj",
   "expectedPackageFiles": [
     "/Users/marcelohani/.nuget/packages/dapper/2.0.143/dapper.2.0.143.nupkg.sha512",
     "/Users/marcelohani/.nuget/packages/microsoft.aspnetcore.openapi/7.0.8/microsoft.aspnetcore.openapi.7.0.8.nupkg.sha512",
