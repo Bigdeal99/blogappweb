@@ -3,50 +3,54 @@ using infrastructure.DataModels;
 using infrastructure.QueryModels;
 using Npgsql;
 
-namespace infrastructure.Repositories;
 
-public class BlogRepository
+namespace infrastructure.Repositories
 {
-    private NpgsqlDataSource _dataSource;
-
-    public BlogRepository(NpgsqlDataSource datasource)
+    public class BlogRepository
     {
-        _dataSource = datasource;
-    }
+        private NpgsqlDataSource _dataSource;
 
-    public async Task<IEnumerable<BlogFeedQuery>> GetBlogForFeedAsync()
-    {
-        string sql = $@"
-SELECT Id as {nameof(Blog.Id)},
-       Title as {nameof(Blog.Title)},
-       Summary as {nameof(Blog.Summary)},
-       Content as {nameof(Blog.Content)},
-       PublicationDate as {nameof(Blog.PublicationDate)},
-       CategoryId as {nameof(Blog.CategoryId)},
-       FeaturedImage as {nameof(Blog.FeaturedImage)}
-FROM blog_schema.Blog;";
-        using (var conn = await _dataSource.OpenConnectionAsync())
+        public BlogRepository(NpgsqlDataSource datasource)
         {
-            return await conn.QueryAsync<BlogFeedQuery>(sql);
+            _dataSource = datasource;
         }
-    }
 
-    public async Task<BlogFeedQuery?> GetBlogByIdAsync(int id)
-    {
-        string sql = $@"
-SELECT Id as {nameof(Blog.Id)},
-       Title as {nameof(Blog.Title)},
-       Summary as {nameof(Blog.Summary)},
-       Content as {nameof(Blog.Content)},
-       PublicationDate as {nameof(Blog.PublicationDate)},
-       CategoryId as {nameof(Blog.CategoryId)},
-       FeaturedImage as {nameof(Blog.FeaturedImage)}
+        public async Task<IEnumerable<BlogFeedQuery>> GetBlogForFeedAsync()
+        {
+            const string sql = @"
+SELECT Id, Title, Summary, Content, PublicationDate, CategoryId, FeaturedImage
+FROM blog_schema.Blog;";
+
+            using (var conn = await _dataSource.OpenConnectionAsync())
+            {
+                return await conn.QueryAsync<BlogFeedQuery>(sql);
+            }
+        }
+
+        public async Task<BlogFeedQuery?> GetBlogByIdAsync(int id)
+        {
+            const string sql = @"
+SELECT Id, Title, Summary, Content, PublicationDate, CategoryId, FeaturedImage
 FROM blog_schema.Blog
 WHERE Id = @Id;";
 
-        using (var conn = await _dataSource.OpenConnectionAsync())
+            using (var conn = await _dataSource.OpenConnectionAsync())
+            {
+                return await conn.QueryFirstOrDefaultAsync<BlogFeedQuery>(sql, new { Id = id });
+            }
+        }
+
+        public async Task<int> CreateBlogAsync(Blog blog)
         {
-            return await conn.QueryFirstOrDefaultAsync<BlogFeedQuery>(sql, new { BlogId = id });
+            const string sql = @"
+INSERT INTO blog_schema.Blog (Title, Summary, Content, PublicationDate, CategoryId, FeaturedImage)
+VALUES (@Title, @Summary, @Content, @PublicationDate, @CategoryId, @FeaturedImage)
+RETURNING Id;";
+
+            using (var conn = await _dataSource.OpenConnectionAsync())
+            {
+                return await conn.ExecuteScalarAsync<int>(sql, blog);
+            }
         }
     }
 }

@@ -6,61 +6,55 @@ using infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using service;
 
-namespace library.Controllers;
+namespace library.Controllers
 
-
-public class BlogController : ControllerBase
 {
-
-    private readonly ILogger<BlogController> _logger;
-    private readonly BlogService _blogService;
-
-    public BlogController(ILogger<BlogController> logger,
-        BlogService blogService)
-    {
-        _logger = logger;
-        _blogService = blogService;
-    }
-
-
-
-    [HttpGet]
     [Route("/api/blog")]
-    public ResponseDto Get()
+    public class BlogController : ControllerBase
     {
-        HttpContext.Response.StatusCode = 200;
-        return new ResponseDto()
+        private readonly ILogger<BlogController> _logger;
+        private readonly BlogService _blogService;
+
+        public BlogController(ILogger<BlogController> logger, BlogService blogService)
         {
-            MessageToClient = "Successfully fetched",
-            ResponseData = _blogService.GetBlogForFeedAsync()
-        };
-    }
-    
-    [HttpGet]
-    [Route("/api/blog/{Id}")]
-    public async Task<ResponseDto> GetBlogByIdAsync([FromRoute] int id)
-    {
-        var blog = await _blogService.GetBlogByIdAsync(id);
-    
-        if (blog == null)
-        {
-            HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
-            return new ResponseDto()
-            {
-                MessageToClient = "Blog not found"
-            };
+            _logger = logger;
+            _blogService = blogService;
         }
 
-        return new ResponseDto()
+        [HttpGet]
+        public async Task<IActionResult> GetAsync()
         {
-            MessageToClient = "Successfully fetched blog",
-            ResponseData = blog
-        };
+            var blogs = await _blogService.GetBlogForFeedAsync();
+            return Ok(new ResponseDto
+            {
+                MessageToClient = "Successfully fetched",
+                ResponseData = blogs
+            });
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBlogByIdAsync(int id)
+        {
+            var blog = await _blogService.GetBlogByIdAsync(id);
+            if (blog == null)
+            {
+                return NotFound(new ResponseDto { MessageToClient = "Blog not found" });
+            }
+
+            return Ok(new ResponseDto
+            {
+                MessageToClient = "Successfully fetched blog",
+                ResponseData = blog
+            });
+        }
+
+        [HttpPost]
+        [ValidateModel]
+        public async Task<IActionResult> PostAsync([FromBody] CreateBlogRequestDto dto)
+        {
+            var blog = await _blogService.CreateBlogAsync(dto);
+            return CreatedAtAction(nameof(GetBlogByIdAsync), new { id = blog.Id }, blog);
+        }
     }
-
-    
-
-    
 }
-
 

@@ -3,25 +3,40 @@ using infrastructure.DataModels;
 using infrastructure.QueryModels;
 using infrastructure.Repositories;
 
-namespace service;
-public class BlogService
+namespace service
+
 {
-    private readonly BlogRepository _blogRepository;
-    
-    public BlogService(BlogRepository blogRepository)
+    public class BlogService
     {
-        _blogRepository = blogRepository;
-    }
+        private readonly BlogRepository _blogRepository;
 
-    public Task<IEnumerable<BlogFeedQuery>> GetBlogForFeedAsync()
-    {
-        return _blogRepository.GetBlogForFeedAsync();
-    }
+        public BlogService(BlogRepository blogRepository)
+        {
+            _blogRepository = blogRepository;
+        }
 
+        public Task<IEnumerable<BlogFeedQuery>> GetBlogForFeedAsync()
+        {
+            return _blogRepository.GetBlogForFeedAsync();
+        }
 
-    public async Task<object?> GetBlogByIdAsync(int id)
-    {
-        return await _blogRepository.GetBlogByIdAsync(id);
+        public async Task<Blog?> GetBlogByIdAsync(int id)
+        {
+            return await _blogRepository.GetBlogByIdAsync(id);
+        }
 
+        public async Task<int> CreateBlogAsync(CreateBlogRequestDto dto)
+        {
+            var blog = new Blog
+            {
+                Title = dto.Title,
+                Summary = dto.Summary,
+                Content = dto.Content,
+                PublicationDate = dto.PublicationDate,
+                CategoryId = dto.CategoryId,
+                FeaturedImage = dto.FeaturedImage
+            };
+            return await _blogRepository.CreateBlogAsync(blog);
+        }
     }
 }
