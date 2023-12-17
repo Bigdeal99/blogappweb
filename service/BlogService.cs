@@ -28,17 +28,17 @@ public class BlogService
 
     
 
-        public async Task<bool> DeleteBlogAsync(int id)
+        public async Task<bool> DeleteBlogAsync(int Id)
         {
             // Check if the blog exists
-            var blog = await _blogRepository.GetBlogByIdAsync(id);
+            var blog = await _blogRepository.GetBlogByIdAsync(Id);
             if (blog == null)
             {
                 return false;
             }
 
             // Call repository method to delete the blog entity
-            await _blogRepository.DeleteBlogAsync(id);
+            await _blogRepository.DeleteBlogAsync(Id);
             return true;
         }
 

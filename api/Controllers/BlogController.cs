@@ -79,10 +79,10 @@ public class BlogController : ControllerBase
     } 
 
     [HttpDelete]
-    [Route("/api/blog/{id}")]
-    public async Task<IActionResult> DeleteBlogAsync([FromRoute] int id)
+    [Route("/api/blog/{Id}")]
+    public async Task<IActionResult> DeleteBlogAsync([FromRoute] int Id)
     {
-        var success = await _blogService.DeleteBlogAsync(id);
+        var success = await _blogService.DeleteBlogAsync(Id);
 
         if (!success)
         {

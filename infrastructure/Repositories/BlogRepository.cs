@@ -51,7 +51,7 @@ WHERE Id = @Id;";
     }
     
     
-    public async Task<bool> DeleteBlogAsync(int id)
+    public async Task<bool> DeleteBlogAsync(int Id)
     {
         string sql = @"
 DELETE FROM blog_schema.Blog 
@@ -59,7 +59,7 @@ WHERE Id = @Id;";
 
         using (var conn = await _dataSource.OpenConnectionAsync())
         {
-            var rowsAffected = await conn.ExecuteAsync(sql, new { Id = id });
+            var rowsAffected = await conn.ExecuteAsync(sql, new { Id = Id });
             return rowsAffected > 0;
         }
     }
