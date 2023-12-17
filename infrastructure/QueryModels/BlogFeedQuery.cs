@@ -24,4 +24,16 @@ public class BlogFeedQuery
     //public ICollection<CommentDto> Comments { get; set; } = new List<CommentDto>();
 
     public string? FeaturedImage { get; set; }
+
+    public class CommentFeedQuery
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Text { get; set; }
+        public DateTime PublicationDate { get; set; }
+        public int BlogPostId { get; set; }
+        public virtual Blog Blog { get; set; }
+        
+    }
 }

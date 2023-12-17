@@ -52,7 +52,9 @@ public class BlogService
                 throw new ValidationException("Title already exists with name " + Title);
             }
         
-            return _blogRepository.CreateBlogAsync(Title, Summary, Content, PublicationDate, CategoryId, FeaturedImage);        }
+            return _blogRepository.CreateBlogAsync(Title, Summary, Content, PublicationDate, CategoryId, FeaturedImage);
+            
+        }
 
         public object? UpdateBlogAsync(int Id, string Title, string Summary, string Content, DateTime PublicationDate, int CategoryId, string FeaturedImage)
         {
