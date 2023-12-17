@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using api.CustomDataAnnotations;
 using api.Filters;
 using api.TransferModels;
+using infrastructure.DataModels;
 using infrastructure.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using service;
@@ -57,10 +58,52 @@ public class BlogController : ControllerBase
             ResponseData = blog
         };
     }
+   
 
+   
     
+    [HttpPut]
+    [ValidateModel]
+    [Route("/api/blog/{Id}")]
+    public ResponseDto Put([FromRoute] int Id,
+        [FromBody] UpdateBlogRequestDto dto)
+    {
+        HttpContext.Response.StatusCode = 201;
+        return new ResponseDto()
+        {
+            MessageToClient = "Successfully updated",
+            ResponseData =
+                _blogService.UpdateBlogAsync(Id, dto.Title, dto.Summary, dto.Content, dto.PublicationDate, dto.CategoryId, dto.FeaturedImage)
+        };
 
-    
+    } 
+
+    [HttpDelete]
+    [Route("/api/blog/{id}")]
+    public async Task<IActionResult> DeleteBlogAsync([FromRoute] int id)
+    {
+        var success = await _blogService.DeleteBlogAsync(id);
+
+        if (!success)
+        {
+            return NotFound();
+        }
+
+        return NoContent();
+    }
+    [HttpPost]
+    [ValidateModel]
+    [Route("/api/blog")]
+    public ResponseDto Post([FromBody] CreateBlogRequestDto dto)
+    {
+        HttpContext.Response.StatusCode = StatusCodes.Status201Created;
+        return new ResponseDto()
+        {
+            MessageToClient = "Successfully created a blog",
+            ResponseData = _blogService.CreateBlogAsync(dto.Title, dto.Summary, dto.Content, dto.PublicationDate, dto.CategoryId,dto.FeaturedImage)
+        };
+    }
 }
+
 
 

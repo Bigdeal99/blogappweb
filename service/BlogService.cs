@@ -24,4 +24,38 @@ public class BlogService
         return await _blogRepository.GetBlogByIdAsync(id);
 
     }
+    
+
+    
+
+        public async Task<bool> DeleteBlogAsync(int id)
+        {
+            // Check if the blog exists
+            var blog = await _blogRepository.GetBlogByIdAsync(id);
+            if (blog == null)
+            {
+                return false;
+            }
+
+            // Call repository method to delete the blog entity
+            await _blogRepository.DeleteBlogAsync(id);
+            return true;
+        }
+
+        
+
+        public object? CreateBlogAsync(string Title, string Summary, string Content, DateTime PublicationDate, int CategoryId, string FeaturedImage)
+        {
+            var doesBlogExist = _blogRepository.DoesBlogtWithNameExist( Title);
+            if (doesBlogExist)
+            {
+                throw new ValidationException("Title already exists with name " + Title);
+            }
+        
+            return _blogRepository.CreateBlogAsync(Title, Summary, Content, PublicationDate, CategoryId, FeaturedImage);        }
+
+        public object? UpdateBlogAsync(int Id, string Title, string Summary, string Content, DateTime PublicationDate, int CategoryId, string FeaturedImage)
+        {
+            return _blogRepository.UpdateBlogAsync(Id, Title, Summary, Content, PublicationDate, CategoryId, FeaturedImage);
+        }
 }
