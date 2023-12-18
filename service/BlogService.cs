@@ -13,11 +13,12 @@ public class BlogService
         _blogRepository = blogRepository;
     }
 
-    public Task<IEnumerable<BlogFeedQuery>> GetBlogForFeedAsync()
+    public IEnumerable<BlogFeedQuery> GetBlogForFeedAsync()
     {
         return _blogRepository.GetBlogForFeedAsync();
     }
-
+   
+   
 
     public async Task<object?> GetBlogByIdAsync(int id)
     {

@@ -14,23 +14,27 @@ public class BlogRepository
         _dataSource = datasource;
     }
 
-    public async Task<IEnumerable<BlogFeedQuery>> GetBlogForFeedAsync()
+    public IEnumerable<BlogFeedQuery> GetBlogForFeedAsync()
     {
         string sql = $@"
-SELECT Id as {nameof(Blog.Id)},
-       Title as {nameof(Blog.Title)},
-       Summary as {nameof(Blog.Summary)},
-       Content as {nameof(Blog.Content)},
-       PublicationDate as {nameof(Blog.PublicationDate)},
-       CategoryId as {nameof(Blog.CategoryId)},
-       FeaturedImage as {nameof(Blog.FeaturedImage)}
+SELECT Id as {nameof(BlogFeedQuery.Id)},
+       Title as {nameof(BlogFeedQuery.Title)},
+       Summary as {nameof(BlogFeedQuery.Summary)},
+       Content as {nameof(BlogFeedQuery.Content)},
+       PublicationDate as {nameof(BlogFeedQuery.PublicationDate)},
+       CategoryId as {nameof(BlogFeedQuery.CategoryId)},
+       FeaturedImage as {nameof(BlogFeedQuery.FeaturedImage)}
 FROM blog_schema.Blog;";
-        using (var conn = await _dataSource.OpenConnectionAsync())
+        using (var conn = _dataSource.OpenConnection())
         {
-            return await conn.QueryAsync<BlogFeedQuery>(sql);
+            return conn.Query<BlogFeedQuery>(sql);
         }
     }
-
+    
+    
+    
+    
+    
     public async Task<BlogFeedQuery?> GetBlogByIdAsync(int id)
     {
         string sql = $@"
@@ -92,7 +96,9 @@ WHERE Id = @Id;";
         using (var conn = _dataSource.OpenConnection())
         {
             return conn.QueryFirst<Blog>(sql, new { Title, Summary, Content, PublicationDate, CategoryId, FeaturedImage});
-        }    }
+        }
+        
+    }
 
     public bool DoesBlogtWithNameExist(string Title)
     {

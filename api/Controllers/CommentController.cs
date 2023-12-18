@@ -1,38 +1,33 @@
-
-using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using api.Filters;
 using api.TransferModels;
-using infrastructure.DataModels;
 using service;
 
 namespace library.Controllers
-
 {
-    [Route("api/comment")]
+    
     public class CommentController : ControllerBase
     {
+        private readonly ILogger<CommentController> _logger;
         private readonly CommentService _commentService;
 
-        public CommentController(CommentService commentService)
+        public CommentController(ILogger<CommentController> logger,CommentService commentService)
         {
+            _logger = logger;
             _commentService = commentService;
         }
         
         [HttpGet]
-        [Route("/api/Comment")]
-        public ResponseDto Get()
+        public async Task<ActionResult<ResponseDto>> Get()
         {
-            HttpContext.Response.StatusCode = 200;
-            return new ResponseDto()
+            var comments = await _commentService.GetCommentsForFeedAsync();
+            return Ok(new ResponseDto
             {
                 MessageToClient = "Successfully fetched",
-                ResponseData = _commentService.GetCommenForFeedAsync()
-            };
+                ResponseData = comments
+            });
         }
         [HttpGet]
         [Route("/api/comment/{Id}")]
@@ -45,7 +40,7 @@ namespace library.Controllers
                 HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
                 return new ResponseDto()
                 {
-                    MessageToClient = "comment not found"
+                    MessageToClient = "Comment not found"
                 };
             }
 
@@ -56,6 +51,8 @@ namespace library.Controllers
             };
         }
         
+
+       
         [HttpPut]
         [ValidateModel]
         [Route("/api/comment/{Id}")]
@@ -67,17 +64,18 @@ namespace library.Controllers
             {
                 MessageToClient = "Successfully updated",
                 ResponseData =
-                    _commentService.UpdateCommentAsync(Id, dto.Name, dto.Email, dto.Text, dto.PublicationDate, dto.BlogPostId)
+                    _commentService.UpdateCommentAsync(dto.Name, dto.Email, dto.Text, dto.PublicationDate, dto.BlogPostId)
             };
 
         } 
-       
-        [HttpDelete]
-        [Route("/api/comment/{Id}")]
-        public async Task<IActionResult> DeleteCommentAsync([FromRoute] int Id)
+        
+        
+        
+        
+        [HttpDelete("/api/comment{id}")]
+        public async Task<IActionResult> DeleteCommentAsync(int id)
         {
-            var success = await _commentService.DeleteCommentAsync(Id);
-
+            var success = await _commentService.DeleteCommentAsync(id);
             if (!success)
             {
                 return NotFound();
@@ -85,7 +83,7 @@ namespace library.Controllers
 
             return NoContent();
         }
-        
+
         [HttpPost]
         [ValidateModel]
         [Route("/api/comment")]
@@ -95,12 +93,8 @@ namespace library.Controllers
             return new ResponseDto()
             {
                 MessageToClient = "Successfully created a comment",
-                ResponseData = _commentService.CreateCommentAsync (dto.Name, dto.Email, dto.Text, dto.PublicationDate, dto.BlogPostId)
+                ResponseData = _commentService.CreatecommentAsync(dto.Name, dto.Email, dto.Text, dto.PublicationDate, dto.BlogPostId)
             };
         }
     }
-    
 }
-
-
-

@@ -16,8 +16,7 @@ public class BlogController : ControllerBase
     private readonly ILogger<BlogController> _logger;
     private readonly BlogService _blogService;
 
-    public BlogController(ILogger<BlogController> logger,
-        BlogService blogService)
+    public BlogController(ILogger<BlogController> logger,BlogService blogService)
     {
         _logger = logger;
         _blogService = blogService;
@@ -36,6 +35,7 @@ public class BlogController : ControllerBase
             ResponseData = _blogService.GetBlogForFeedAsync()
         };
     }
+    
     
     [HttpGet]
     [Route("/api/blog/{Id}")]

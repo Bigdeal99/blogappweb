@@ -1,77 +1,89 @@
-
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Threading.Tasks;
 using Dapper;
 using infrastructure.DataModels;
 using infrastructure.QueryModels;
 using Npgsql;
 
-namespace infrastructure.Repositories;
-
-public class CommentRepository
+namespace infrastructure.Repositories
 {
-    private NpgsqlDataSource _dataSource;
+    public class CommentRepository
+    {
+        private readonly NpgsqlDataSource _dataSource;
 
-    public CommentRepository(NpgsqlDataSource datasource)
-    {
-        _dataSource = datasource;
-    }
-   
-    public async Task<BlogFeedQuery.CommentFeedQuery> GetCommentByIdAsync(int Id)
-    {
-        string sql = $@"
-SELECT Id as {nameof(Comment.Id)},
-       Name as {nameof(Comment.Name)},
-       Email as {nameof(Comment.Email)},
-       Text as {nameof(Comment.Text)},
-        PublicationDate as {nameof(Comment.PublicationDate)},
-       BlogPostId as {nameof(Comment.BlogPostId)}
+        public CommentRepository(NpgsqlDataSource datasource)
+        {
+            _dataSource = datasource;
+        }
+
+        public async Task<BlogFeedQuery.CommentFeedQuery> GetCommentByIdAsync(int Id)
+        {
+            string sql = @"
+SELECT Id, Name, Email, Text, PublicationDate, BlogPostId
 FROM blog_schema.Comment
 WHERE Id = @Id;";
-        using (var conn = await _dataSource.OpenConnectionAsync())
-        {
-            return await conn.QueryFirstOrDefaultAsync<BlogFeedQuery.CommentFeedQuery>(sql, new { Id = Id });
+            using (var conn = await _dataSource.OpenConnectionAsync())
+            {
+                return await conn.QueryFirstOrDefaultAsync<BlogFeedQuery.CommentFeedQuery>(sql, new { Id = Id });
+            }
         }
-    }
 
+        public async Task<IEnumerable<BlogFeedQuery.CommentFeedQuery>> GetCommentsForFeedAsync()
+        {
+            string sql = @"
+SELECT Id, Name, Email, Text, PublicationDate, BlogPostId
+FROM blog_schema.Comment;";
+            using (var conn = await _dataSource.OpenConnectionAsync())
+            {
+                return await conn.QueryAsync<BlogFeedQuery.CommentFeedQuery>(sql);
+            }
+        }
+        public async Task DeleteCommentAsync(int Id)
+        {
+            string sql = @"
+DELETE FROM blog_schema.Comment
+WHERE Id = @id;";
 
-    public async Task<IEnumerable<BlogFeedQuery.CommentFeedQuery>> GetCommenForFeedAsync()
-    {
-        string sql = $@"
-SELECT Id as {nameof(Comment.Id)},
-       Name as {nameof(Comment.Name)},
-       Email as {nameof(Comment.Email)},
-       Text as {nameof(Comment.Text)},
-        PublicationDate as {nameof(Comment.PublicationDate)},
-       BlogPostId as {nameof(Comment.BlogPostId)}
-FROM blog_schema.Comment
+            using (var conn = await _dataSource.OpenConnectionAsync())
+            {
+                await conn.ExecuteAsync(sql, new { Id });
+            }
+        }
+        
+
+        public object? CreatecommentAsync(string Name, string Email, string Text, DateTime PublicationDate,
+            int BlogPostId)
+        {
+            string sql = @"
+INSERT INTO blog_schema.Comment (Name, Email, Text, PublicationDate, BlogPostId)
+VALUES (@Name, @Email, @Text, @PublicationDate, @BlogPostId);";
+
+            using (var conn = _dataSource.OpenConnection())
+            {
+                return conn.QueryFirst<Comment>(sql, new { Name, Email, Text, PublicationDate, BlogPostId });
+            }
+
+        }
+
+        public object? UpdateCommentAsync(string Name, string Email, string Text, DateTime PublicationDate,
+            int BlogPostId)
+        {
+            string sql = @"
+UPDATE blog_schema.Comment
+SET Name = @Name, Email = @Email, Text = @Text, PublicationDate = @PublicationDate, BlogPostId = @BlogPostId
 WHERE Id = @Id;";
-        using (var conn = await _dataSource.OpenConnectionAsync())
-        {
-            return await conn.QueryAsync<BlogFeedQuery.CommentFeedQuery>(sql);
+
+            using (var conn = _dataSource.OpenConnection())
+            {
+                return conn.QueryFirst<Comment>(sql, new { Name, Email, Text, PublicationDate, BlogPostId });
+
+            }
         }
-    }
 
-    public async Task DeleteCommentAsync(int Id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool DoesCommenttWithNameExist(string name)
-    {
-        throw new NotImplementedException();
-    }
-
-
-    public object? CreateCommentAsync(string name, string email, string text, DateTime publicationDate, int blogPostId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public object? UpdateCommentAsync(int id, string name, string email, string text, DateTime publicationDate, int blogPostId)
-    {
-        throw new NotImplementedException();
+       
     }
 }
+
+
+        
