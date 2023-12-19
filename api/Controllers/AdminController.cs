@@ -1,48 +1,67 @@
 using api.TransferModels;
 using infrastructure.DataModels;
-
-namespace library.Controllers;
-
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using service;
+using System.Threading.Tasks;
 
-[Route("api/admin")]
-public class AdminController : ControllerBase
+namespace library.Controllers
 {
-    private readonly AdminService _adminService;
-
-    public AdminController(AdminService adminService)
+    [Route("api/admin")]
+    public class AdminController : ControllerBase
     {
-        _adminService = adminService;
-    }
+        private readonly AdminService _adminService;
 
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Admin>> GetAdmin(int id)
-    {
-        var admin = await _adminService.GetAdminByIdAsync(id);
-        if (admin == null)
+        public AdminController(AdminService adminService)
         {
-            return NotFound();
-        }
-        return Ok(admin);
-    }
-
-    // Additional methods for Create, Update, Delete, etc.
-
-
-    [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginViewModel model)
-    {
-        var isAuthenticated = await _adminService.AuthenticateAdminAsync(model.Username, model.Password);
-
-        if (isAuthenticated)
-        {
-            // Authentication successful
-            return Ok(new { MessageToClient = "Successfully logged in" });
+            _adminService = adminService;
         }
 
-        // Authentication failed
-        return Unauthorized(new { MessageToClient = "Invalid login attempt" });
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Admin>> GetAdmin(int id)
+        {
+            var admin = await _adminService.GetAdminByIdAsync(id);
+            if (admin == null)
+            {
+                return NotFound();
+            }
+            return Ok(admin);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAdmin([FromBody] Admin admin)
+        {
+            var createdAdmin = await _adminService.CreateAdminAsync(admin);
+            return CreatedAtAction(nameof(GetAdmin), new { id = createdAdmin.Id }, createdAdmin);
+        }
+
+       
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAdmin(int id)
+        {
+            var admin = await _adminService.GetAdminByIdAsync(id);
+            if (admin == null)
+            {
+                return NotFound();
+            }
+
+            await _adminService.DeleteAdminAsync(id);
+            return NoContent();
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+        {
+            var isAuthenticated = await _adminService.AuthenticateAdminAsync(model.Username, model.Password);
+
+            if (isAuthenticated)
+            {
+                return Ok(new { MessageToClient = "Successfully logged in" });
+            }
+
+            return Unauthorized(new { MessageToClient = "Invalid login attempt" });
+        }
+
+        // Additional methods can be added here as needed
     }
 }

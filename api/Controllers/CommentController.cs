@@ -20,8 +20,8 @@ namespace library.Controllers
             _commentService = commentService;
         }
 
-        
-        
+
+
         [HttpGet]
         [Route("/api/comment")]
         public ResponseDto Get()
@@ -34,13 +34,12 @@ namespace library.Controllers
             };
         }
 
-       
         [HttpGet]
         [Route("/api/comment/{Id}")]
-        public async Task<ResponseDto> GetBlogByIdAsync([FromRoute] int id)
+        public async Task<ResponseDto> GetCommentByIdAsync([FromRoute] int Id)
         {
-            var comment = await _commentService.GetCommentByIdAsync(id);
-    
+            var comment = await _commentService.GetCommentByIdAsync(Id);
+
             if (comment == null)
             {
                 HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
@@ -57,9 +56,8 @@ namespace library.Controllers
             };
         }
 
-       
 
-       
+
         [HttpDelete]
         [Route("/api/comment/{Id}")]
         public async Task<IActionResult> DeleteCommentAsync([FromRoute] int Id)
@@ -73,21 +71,6 @@ namespace library.Controllers
 
             return NoContent();
         }
-        [HttpPut]
-        [ValidateModel]
-        [Route("/api/comment/{Id}")]
-        public ResponseDto Put([FromRoute] int Id,
-            [FromBody] UpdateCommentRequestDto dto)
-        {
-            HttpContext.Response.StatusCode = 201;
-            return new ResponseDto()
-            {
-                MessageToClient = "Successfully updated",
-                ResponseData =
-                    _commentService.UpdateCommentAsync(Id, dto.Name, dto.Email, dto.Text, dto.PublicationDate, dto.BlogId)
-            };
-
-        } 
         [HttpPost]
         [ValidateModel]
         [Route("/api/comment")]
@@ -100,9 +83,30 @@ namespace library.Controllers
                 ResponseData = _commentService.CreateCommentAsync(dto.Name, dto.Email, dto.Text, dto.PublicationDate, dto.BlogId)
             };
         }
-
+        
        
-        }
-    
+        
+        [HttpPut]
+        [ValidateModel]
+        [Route("/api/comment/{Id}")]
+        public ResponseDto Put([FromRoute] int Id,
+            [FromBody] UpdateCommentRequestDto dto)
+        {
+            HttpContext.Response.StatusCode = 201;
+            return new ResponseDto()
+            {
+                MessageToClient = "Successfully updated",
+                ResponseData =
+                    _commentService.UpdateCommentAsync(Id, dto.Name, dto.Email, dto.Text, dto.PublicationDate,
+                        dto.BlogId)
+            };
+
+        } 
+        
+       
+
+
     }
+
+}
 

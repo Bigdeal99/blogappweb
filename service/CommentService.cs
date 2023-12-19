@@ -16,16 +16,15 @@ namespace service
             _commentRepository = commentRepository;
         }
 
-        public Task<IEnumerable<CommentFeedQuery>> GetCommentsForFeedAsync()
+        public IEnumerable<CommentFeedQuery> GetCommentsForFeedAsync()
         {
             return _commentRepository.GetCommentsForFeedAsync();
         }
-       
-        public async Task<object> GetCommentByIdAsync(int Id)
+        
+        public async Task<Comment> GetCommentByIdAsync(int Id)
         {
             return await _commentRepository.GetCommentByIdAsync(Id);
         }
-       
 
         public async Task<bool> DeleteCommentAsync(int Id)
         {
@@ -42,16 +41,22 @@ namespace service
     
 
 
-        public object? UpdateCommentAsync(int Id, string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
+       
+        public Comment UpdateCommentAsync(int Id, string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
         {
-            return _commentRepository.UpdateCommentAsync(Id, Name, Email, Text, PublicationDate, BlogId);
+            return _commentRepository.UpdateCommentAsync( Id, Name, Email, Text, PublicationDate, BlogId);
         }
         
 
-        public object? CreateCommentAsync(string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
+        
+        public Comment CreateCommentAsync(string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
         {
+           
+        
             return _commentRepository.CreateCommentAsync(Name, Email, Text, PublicationDate, BlogId);
-            
         }
+        
+
+        
     }
 }
