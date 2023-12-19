@@ -17,73 +17,73 @@ namespace infrastructure.Repositories
             _dataSource = datasource;
         }
 
-        public async Task<BlogFeedQuery.CommentFeedQuery> GetCommentByIdAsync(int Id)
+        public async Task<CommentFeedQuery> GetCommentByIdAsync(int Id)
         {
             string sql = @"
-SELECT Id, Name, Email, Text, PublicationDate, BlogPostId
-FROM blog_schema.Comment
-WHERE Id = @Id;";
+SELECT c.Id, c.Name, c.Email, c.Text, c.PublicationDate, c.BlogId, 
+       b.Title as BlogTitle, b.Summary as BlogSummary
+FROM blog_schema.Comment c
+JOIN blog_schema.Blog b ON c.BlogId = b.Id
+WHERE c.Id = @Id;";
             using (var conn = await _dataSource.OpenConnectionAsync())
             {
-                return await conn.QueryFirstOrDefaultAsync<BlogFeedQuery.CommentFeedQuery>(sql, new { Id = Id });
+                return await conn.QueryFirstOrDefaultAsync<CommentFeedQuery>(sql, new { Id = Id });
             }
         }
 
-        public async Task<IEnumerable<BlogFeedQuery.CommentFeedQuery>> GetCommentsForFeedAsync()
+        public async Task<IEnumerable<CommentFeedQuery>> GetCommentsForFeedAsync()
         {
             string sql = @"
-SELECT Id, Name, Email, Text, PublicationDate, BlogPostId
+SELECT Id, Name, Email, Text, PublicationDate, BlogId
 FROM blog_schema.Comment;";
             using (var conn = await _dataSource.OpenConnectionAsync())
             {
-                return await conn.QueryAsync<BlogFeedQuery.CommentFeedQuery>(sql);
+                return await conn.QueryAsync<CommentFeedQuery>(sql);
             }
         }
-        public async Task DeleteCommentAsync(int Id)
+
+        public async Task <bool>DeleteCommentAsync(int Id)
         {
             string sql = @"
 DELETE FROM blog_schema.Comment
-WHERE Id = @id;";
+WHERE Id = @Id;";
 
             using (var conn = await _dataSource.OpenConnectionAsync())
             {
-                await conn.ExecuteAsync(sql, new { Id });
+                var rowsAffected = await conn.ExecuteAsync(sql, new { Id = Id });
+                return rowsAffected > 0;
             }
         }
-        
-
-        public object? CreatecommentAsync(string Name, string Email, string Text, DateTime PublicationDate,
-            int BlogPostId)
-        {
-            string sql = @"
-INSERT INTO blog_schema.Comment (Name, Email, Text, PublicationDate, BlogPostId)
-VALUES (@Name, @Email, @Text, @PublicationDate, @BlogPostId);";
-
-            using (var conn = _dataSource.OpenConnection())
-            {
-                return conn.QueryFirst<Comment>(sql, new { Name, Email, Text, PublicationDate, BlogPostId });
-            }
-
-        }
-
-        public object? UpdateCommentAsync(string Name, string Email, string Text, DateTime PublicationDate,
-            int BlogPostId)
-        {
-            string sql = @"
-UPDATE blog_schema.Comment
-SET Name = @Name, Email = @Email, Text = @Text, PublicationDate = @PublicationDate, BlogPostId = @BlogPostId
-WHERE Id = @Id;";
-
-            using (var conn = _dataSource.OpenConnection())
-            {
-                return conn.QueryFirst<Comment>(sql, new { Name, Email, Text, PublicationDate, BlogPostId });
-
-            }
-        }
-
        
+
+
+        public async Task<object?> UpdateCommentAsync(int Id, string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
+        {
+            string sql = @"
+UPDATE blog_schema.Comment 
+SET Name = @Name, 
+    Email = @Email, 
+    Text = @Text, 
+    PublicationDate = @PublicationDate, 
+    BlogId = @BlogId, 
+WHERE Id = @Id;";
+            using (var conn = _dataSource.OpenConnection())
+            {
+                return await conn.QueryFirstOrDefaultAsync<Comment>(sql, new { Id, Name, Email, Text, PublicationDate, BlogId});
+            }        }
+        
+       
+
+        public object? CreateCommentAsync(string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
+        {
+            string sql = @"
+    INSERT INTO blog_schema.Comment 
+    (Name, Email, Text, PublicationDate, BlogId)
+    VALUES (@Name, @Email, @Text, @PublicationDate,@BlogId)
+    RETURNING Id;";
+            using (var conn = _dataSource.OpenConnection())
+            {
+                return conn.QueryFirst<Comment>(sql, new { Name, Email, Text, PublicationDate, BlogId});
+            }        }
     }
 }
-
-
-        

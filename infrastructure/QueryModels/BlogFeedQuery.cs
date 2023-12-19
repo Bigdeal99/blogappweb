@@ -25,15 +25,19 @@ public class BlogFeedQuery
 
     public string? FeaturedImage { get; set; }
 
-    public class CommentFeedQuery
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Text { get; set; }
-        public DateTime PublicationDate { get; set; }
-        public int BlogPostId { get; set; }
-        public virtual Blog Blog { get; set; }
+   
+}
+public class CommentFeedQuery
+{
+    public int Id { get; set; }
+    [Required]
+
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public string Text { get; set; }
+    public DateTime PublicationDate { get; set; }
+    public int BlogId { get; set; }
+    public BlogFeedQuery Blog { get; set; }
+
         
-    }
 }

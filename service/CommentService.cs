@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using infrastructure.DataModels;
 using infrastructure.QueryModels;
@@ -17,45 +16,42 @@ namespace service
             _commentRepository = commentRepository;
         }
 
-        
-
-        public Task<IEnumerable<BlogFeedQuery.CommentFeedQuery>> GetCommentsForFeedAsync()
+        public Task<IEnumerable<CommentFeedQuery>> GetCommentsForFeedAsync()
         {
             return _commentRepository.GetCommentsForFeedAsync();
         }
-        
-        public async Task<BlogFeedQuery.CommentFeedQuery> GetCommentByIdAsync(int Id)
+       
+        public async Task<object> GetCommentByIdAsync(int Id)
         {
             return await _commentRepository.GetCommentByIdAsync(Id);
         }
-        public async Task<bool> DeleteCommentAsync(int id)
+       
+
+        public async Task<bool> DeleteCommentAsync(int Id)
         {
-            var comment = await _commentRepository.GetCommentByIdAsync(id);
+            var comment = await _commentRepository.GetCommentByIdAsync(Id);
             if (comment == null)
             {
                 return false;
             }
 
-            await _commentRepository.DeleteCommentAsync(id);
+            await _commentRepository.DeleteCommentAsync(Id);
             return true;
         }
-
-        public object? CreatecommentAsync(string Name, string Email, string Text, DateTime PublicationDate, int BlogPostId)
-        {
-            
         
-            return _commentRepository.CreatecommentAsync(Name, Email, Text, PublicationDate, BlogPostId);
+    
+
+
+        public object? UpdateCommentAsync(int Id, string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
+        {
+            return _commentRepository.UpdateCommentAsync(Id, Name, Email, Text, PublicationDate, BlogId);
+        }
+        
+
+        public object? CreateCommentAsync(string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
+        {
+            return _commentRepository.CreateCommentAsync(Name, Email, Text, PublicationDate, BlogId);
             
         }
-
-        public object? UpdateCommentAsync(string Name, string Email, string Text, DateTime PublicationDate, int BlogPostId)
-        {
-            return _commentRepository.UpdateCommentAsync( Name, Email, Text, PublicationDate, BlogPostId);
-
-        }
-
-       
-
-        
     }
 }
