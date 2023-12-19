@@ -11,7 +11,5 @@ public class UpdateCommentRequestDto
     public string Text { get; set; }
     public DateTime PublicationDate { get; set; }
     [Required]
-
     public int BlogId { get; set; }
-    public virtual Blog Blog { get; set; }
 }

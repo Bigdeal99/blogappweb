@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using infrastructure.DataModels;
 using infrastructure.QueryModels;
 using infrastructure.Repositories;
+using api.TransferModels; 
 
 namespace service
 {
@@ -20,38 +20,25 @@ namespace service
         {
             return _commentRepository.GetCommentsForFeedAsync();
         }
-       
-        public async Task<object> GetCommentByIdAsync(int Id)
+
+        public async Task<CommentFeedQuery> GetCommentByIdAsync(int id)
         {
-            return await _commentRepository.GetCommentByIdAsync(Id);
+            return await _commentRepository.GetCommentByIdAsync(id);
         }
-       
 
-        public async Task<bool> DeleteCommentAsync(int Id)
+        public async Task<bool> DeleteCommentAsync(int id)
         {
-            var comment = await _commentRepository.GetCommentByIdAsync(Id);
-            if (comment == null)
-            {
-                return false;
-            }
-
-            await _commentRepository.DeleteCommentAsync(Id);
-            return true;
+            return await _commentRepository.DeleteCommentAsync(id);
         }
-        
-    
 
-
-        public object? UpdateCommentAsync(int Id, string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
+        public async Task<Comment> CreateCommentAsync(CreateCommentRequestDto dto)
         {
-            return _commentRepository.UpdateCommentAsync(Id, Name, Email, Text, PublicationDate, BlogId);
+            return await _commentRepository.CreateCommentAsync(dto.Name, dto.Email, dto.Text, dto.PublicationDate, dto.BlogId);
         }
-        
 
-        public object? CreateCommentAsync(string Name, string Email, string Text, DateTime PublicationDate, int BlogId)
+        public async Task<Comment> UpdateCommentAsync(int id, UpdateCommentRequestDto dto)
         {
-            return _commentRepository.CreateCommentAsync(Name, Email, Text, PublicationDate, BlogId);
-            
+            return await _commentRepository.UpdateCommentAsync(id, dto.Name, dto.Email, dto.Text, dto.PublicationDate, dto.BlogId);
         }
     }
 }
