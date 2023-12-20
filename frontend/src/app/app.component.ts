@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
     <ion-app>
       <router-outlet></router-outlet>
     </ion-app>
-
   `
 })
 export class AppComponent {

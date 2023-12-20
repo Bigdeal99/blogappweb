@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { environment } from "../environments/environment";
 import { firstValueFrom } from "rxjs";
 import { Blog, ResponseDto } from "../models";
@@ -13,10 +13,10 @@ import { CreateBlogComponent } from "./create-blog.component";
       <ion-list>
         <ion-card *ngFor="let blog of state.blog">
           <ion-card-header>
-            <ion-card-title>{{blog.title}}</ion-card-title>
+            <ion-card-title>{{ blog.title }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <p>{{blog.summary}}</p>
+            <p>{{ blog.summary }}</p>
             <img [src]="blog.featuredImage" *ngIf="blog.featuredImage" />
             <ion-button (click)="blog.id !== undefined && deleteBlog(blog.id)">Delete</ion-button>
           </ion-card-content>
@@ -39,24 +39,23 @@ export class BlogFeed implements OnInit {
     public toastController: ToastController
   ) {}
 
+  ngOnInit(): void {
+    this.fetchBlogs();
+  }
+
   async fetchBlogs() {
     try {
-      const result = await firstValueFrom(this.http.get<ResponseDto<Blog[]>>(`${environment.baseUrl}/api/blog`));
+      const result = await firstValueFrom(this.http.get<ResponseDto<Blog[]>>(environment.baseUrl + '/api/blog'));
       this.state.blog = result.responseData || [];
-      // You may need to fetch each blog's comments and category separately if they are not included
     } catch (error) {
       this.showToast('Error fetching blogs', 'danger');
     }
   }
 
-  ngOnInit(): void {
-    this.fetchBlogs();
-  }
-
-  async deleteBlog(blogId: number) {
+  async deleteBlog(Id: number) {
     try {
-      await firstValueFrom(this.http.delete(`${environment.baseUrl}/api/blog/${blogId}`));
-      this.state.blog = this.state.blog.filter(blog => blog.id !== blogId);
+      await firstValueFrom(this.http.delete(`${environment.baseUrl}/api/blog/${Id}`));
+      this.state.blog = this.state.blog.filter(blog => blog.id !== Id);
       this.showToast('Blog deleted successfully', 'success');
     } catch (error) {
       this.showToast('Error deleting blog', 'danger');
