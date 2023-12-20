@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {BookFeed} from "./book-feed.component";
+import {BlogFeed} from "./blog-feed.component";
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'books',
+    redirectTo: 'blog',
     pathMatch: 'full'
   },
   {
-    path: 'books',
-    component: BookFeed
+    path: 'blog',
+    component: BlogFeed
   }
 ];
 

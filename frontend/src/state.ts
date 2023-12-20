@@ -5,5 +5,5 @@ import {Blog} from "./models";
   providedIn: 'root'
 })
 export class State {
-  books: Blog[] = [];
+  blog: Blog[] = [];
 }
