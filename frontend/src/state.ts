@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Blog,Admin,Category,Comment} from "./models";
+import {Admin, Blog,Comment, Category} from "./models";
 
 @Injectable({
   providedIn: 'root'
@@ -8,5 +8,4 @@ export class State {
   blog: Blog[] = [];
   admin: Admin[] = [];
   category: Category[] = [];
-  comment: Comment[] = [];
-}
+  comment: Comment[] = [];}

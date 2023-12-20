@@ -41,8 +41,9 @@ export class BlogFeed implements OnInit {
 
   async fetchBlogs() {
     try {
-      const result = await firstValueFrom(this.http.get<ResponseDto<Blog[]>>(environment.baseUrl + '/api/blog'));
+      const result = await firstValueFrom(this.http.get<ResponseDto<Blog[]>>(`${environment.baseUrl}/api/blog`));
       this.state.blog = result.responseData || [];
+      // You may need to fetch each blog's comments and category separately if they are not included
     } catch (error) {
       this.showToast('Error fetching blogs', 'danger');
     }
@@ -52,10 +53,10 @@ export class BlogFeed implements OnInit {
     this.fetchBlogs();
   }
 
-  async deleteBlog(Id: number) {
+  async deleteBlog(blogId: number) {
     try {
-      await firstValueFrom(this.http.delete(`${environment.baseUrl}/api/blog/${Id}`));
-      this.state.blog = this.state.blog.filter(blog => blog.id !== Id);
+      await firstValueFrom(this.http.delete(`${environment.baseUrl}/api/blog/${blogId}`));
+      this.state.blog = this.state.blog.filter(blog => blog.id !== blogId);
       this.showToast('Blog deleted successfully', 'success');
     } catch (error) {
       this.showToast('Error deleting blog', 'danger');
