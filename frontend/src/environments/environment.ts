@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://blog22.azurewebsites.net/'
+  baseUrl: 'https://blog22.azurewebsites.net'
 };
 
 /*
