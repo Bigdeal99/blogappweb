@@ -3,7 +3,7 @@ name: build, api test, tests
 on:
   push:
     branches:
-      - main
+      - narcelo4
   pull_request:
     branches:
       - '*'
