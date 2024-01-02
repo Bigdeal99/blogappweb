@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "v4FH47NcpGdSBUOIVrFyaJHKHBedOcGLU0tnx+sZPsBAbx2QeMOHTKX+JEqIndAQJscuAmLIbq5qqvEchM2aJQ==",
+  "dgSpecHash": "L8Zpe+6KMgexk/81IiuiaDHIFKi/oQOQ+R4mskV+7XOgeZbvAVscrj46lA6SumHWB7DtV/wP/hLp3zV8XkJxYQ==",
   "success": true,
-  "projectFilePath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\infrastructure.csproj",
   "expectedPackageFiles": [
-    "/Users/marcelohani/.nuget/packages/dapper/2.0.143/dapper.2.0.143.nupkg.sha512",
-    "/Users/marcelohani/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
-    "/Users/marcelohani/.nuget/packages/npgsql/8.0.0-preview.4/npgsql.8.0.0-preview.4.nupkg.sha512",
-    "/Users/marcelohani/.nuget/packages/microsoft.netcore.app.ref/7.0.9/microsoft.netcore.app.ref.7.0.9.nupkg.sha512",
-    "/Users/marcelohani/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.9/microsoft.aspnetcore.app.ref.7.0.9.nupkg.sha512"
+    "C:\\Users\\basam\\.nuget\\packages\\dapper\\2.1.24\\dapper.2.1.24.nupkg.sha512",
+    "C:\\Users\\basam\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\basam\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\basam\\.nuget\\packages\\npgsql\\8.0.1\\npgsql.8.0.1.nupkg.sha512",
+    "C:\\Users\\basam\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.9\\microsoft.netcore.app.ref.7.0.9.nupkg.sha512",
+    "C:\\Users\\basam\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.9\\microsoft.windowsdesktop.app.ref.7.0.9.nupkg.sha512",
+    "C:\\Users\\basam\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.9\\microsoft.aspnetcore.app.ref.7.0.9.nupkg.sha512"
   ],
   "logs": []
 }

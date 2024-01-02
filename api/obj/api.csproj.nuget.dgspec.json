@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj": {}
+    "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\api\\api.csproj": {}
   },
   "projects": {
-    "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj": {
+    "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj",
+        "projectUniqueName": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/api.csproj",
-        "packagesPath": "/Users/marcelohani/.nuget/packages/",
-        "outputPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/api/obj/",
+        "projectPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\basam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/marcelohani/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\basam\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -26,8 +26,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj": {
-                "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj"
+              "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\infrastructure.csproj": {
+                "projectPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\infrastructure.csproj"
+              },
+              "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\service\\service.csproj": {
+                "projectPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\service\\service.csproj"
               }
             }
           }
@@ -55,7 +58,7 @@
             },
             "Npgsql.DependencyInjection": {
               "target": "Package",
-              "version": "[8.0.0-preview.4, )"
+              "version": "[8.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -81,21 +84,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100-preview.7.23376.3/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.7.23376.3\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj": {
+    "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\infrastructure.csproj",
         "projectName": "infrastructure",
-        "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj",
-        "packagesPath": "/Users/marcelohani/.nuget/packages/",
-        "outputPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/obj/",
+        "projectPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\infrastructure.csproj",
+        "packagesPath": "C:\\Users\\basam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/marcelohani/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\basam\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -124,11 +127,11 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[2.0.143, )"
+              "version": "[2.1.24, )"
             },
             "Npgsql": {
               "target": "Package",
-              "version": "[8.0.0-preview.4, )"
+              "version": "[8.0.1, )"
             }
           },
           "imports": [
@@ -150,6 +153,10 @@
             {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[7.0.9, 7.0.9]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.9, 7.0.9]"
             }
           ],
           "frameworkReferences": {
@@ -157,21 +164,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100-preview.7.23376.3/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.7.23376.3\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj": {
+    "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\service\\service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj",
+        "projectUniqueName": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\service\\service.csproj",
         "projectName": "service",
-        "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/service.csproj",
-        "packagesPath": "/Users/marcelohani/.nuget/packages/",
-        "outputPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/service/obj/",
+        "projectPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\service\\service.csproj",
+        "packagesPath": "C:\\Users\\basam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/marcelohani/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\basam\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -183,8 +190,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj": {
-                "projectPath": "/Users/marcelohani/RiderProjects/blogwebapp/blogappweb/infrastructure/infrastructure.csproj"
+              "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\infrastructure.csproj": {
+                "projectPath": "C:\\Users\\basam\\RiderProjects\\BlogWebApp\\blogappweb\\infrastructure\\infrastructure.csproj"
               }
             }
           }
@@ -220,6 +227,10 @@
             {
               "name": "Microsoft.NETCore.App.Ref",
               "version": "[7.0.9, 7.0.9]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.9, 7.0.9]"
             }
           ],
           "frameworkReferences": {
@@ -227,7 +238,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100-preview.7.23376.3/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.7.23376.3\\RuntimeIdentifierGraph.json"
         }
       }
     }
